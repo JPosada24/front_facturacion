@@ -1,0 +1,31 @@
+<nav class="flex flex-column sticky top-0 justify-content-between h-screen bg-primary-blue w-auto text-white px-4">
+
+    <div class="flex flex-column gap-5">
+
+        <div class="flex py-4 border-bottom-1">
+            <img class="w-15rem" src="../../../assets/LogoHptu.png" alt="LogoHPTU.png">
+        </div>
+
+        <ul class="list-none text-xl px-2 m-0">
+            @for (link of linksItems; track $index) {
+            <a class="flex align-items-center text-white no-underline gap-2 py-3 relative" [routerLink]="link.routerLink"
+                routerLinkActive="active">
+                <ng-icon class="text-2xl" [name]="link.icon"></ng-icon>
+                <li> {{ link.name }}</li>
+            </a>
+            }
+        </ul>
+
+    </div>
+
+    <div class="flex flex-column align-items-center justify-content-center pb-3">
+
+
+        <a class="flex align-items-center gap-2 no-underline text-white text-xl" [routerLink]="''">
+            <h4 class="font-normal">Cerrar Sesión</h4>
+            <ng-icon class="text-3xl" name="heroArrowRightStartOnRectangle"></ng-icon>
+        </a>
+
+    </div>
+
+</nav>

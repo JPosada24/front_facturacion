@@ -1,0 +1,60 @@
+<div class="flex flex-column align-items-center px-8">
+
+    <h1>Gestión de Automatización de Facturación</h1>
+
+    <form [formGroup]="mainForm" (submit)="imprimir($event)" class="flex flex-column w-full gap-3">
+
+        <div class="flex flex-column gap-2">
+            <label for="rpa-name">Robot a ejecutar:</label>
+            <select class="p-1" name="rpa-name" id="rpa-name" formControlName="selectedRpa">
+                <!-- <option value="none" selected>---Seleccionar---</option> -->
+                @for (rpa of rpaList; track $index) {
+                    <option [value]="rpa.id_rpa">{{ rpa.nombre_rpa | titlecase }}</option>
+                }
+            </select>
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label>Soportes a descargar: </label>
+            <form-toggle-button [options]="filesOptions" (selectedOptionChange)="onOptionChange($event)"></form-toggle-button>
+
+            <div class="flex flex-wrap gap-1">
+                <input type="checkbox" name="algo" id="aa">
+                <label for="aa">Aqui van los soportes por robot</label>
+            </div>
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label>Tipo de Ingreso: </label>
+            <form-toggle-button [options]="incomeType" (selectedOptionChange)="onOptionChange($event)"></form-toggle-button>
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label>Tipo de ejecucion: </label>
+            <form-toggle-button [options]="executionType" (selectedOptionChange)="onOptionChange($event)"></form-toggle-button>
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label for="cedula">Cédula Responsable: </label>
+            <input formControlName="identification" class="p-2" type="number" name="cedula" id="cedula" placeholder="Ingresa la cédula...">
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label for="nit">Nit de la Empresa: </label>
+            <input formControlName="nit" class="p-2" type="number" name="nit" id="nit" placeholder="Ingresa el nit de la empresa...">
+        </div>
+
+        <div class="flex flex-column gap-2">
+            <label for="facturas">Ingrese la(s) facturas(s) a ejecutar: </label>
+            <input formControlName="invoiceList" class="p-2" type="text" name="facturas" id="facturas"
+                placeholder="Ingresa el número de las facturas...">
+        </div>
+
+        <div class="flex justify-content-center">
+            <input class="w-3 py-3 border-round-xl border-none cursor-pointer bg-primary-blue text-white text-lg"
+                type="submit" value="Ejecutar">
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+:root {
+    --bg-primary-blue: #1778BD;
+    --bg-secondary-green: #9EC450;
+}
+
+@font-face {
+    font-family: "futura-heavy";
+    src: url("../fonts/FuturaPTBook.woff");
+}
+
+* {
+    font-family: "futura-heavy";
+}
+
+.bg-primary-blue {
+    background: var(--bg-primary-blue);
+}
+
+.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: .3em;
+    height: .3em;
+    background: var(--bg-secondary-green);
+    border-radius: 50%;
+    transition: all ease 300ms;
+}
+
+main-form {
+    width: 100%;
+}
+
+process-report-layout-report {
+    width: 100%;
+}
+
+

@@ -1,0 +1,13 @@
+<div class="wrapper">
+
+    @for (option of options; track $index) {
+    <div class="option">
+        <input [checked]="$index === 0" [value]="option.value" [name]="option.formName" type="radio" class="input" (click)="onSelectionChange(option.value)" />
+        <div class="btn">
+            <span class="span">{{ option.name }}</span>
+        </div>
+    </div>
+    }
+
+    
+</div>
